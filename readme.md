@@ -1,0 +1,41 @@
+# @keychord/chords-warp
+
+Chord package for the [Warp](https://www.warp.dev/) terminal. For other terminals, see
+[`chords-terminal`](../chords-terminal).
+
+> [!NOTE]
+> This section is largely AI-written, so parts of it may not be fully accurate. It will be replaced with a hand-written version when I get the time.
+
+## Chords
+
+- [Warp on macOS](./chords/dev/warp/Warp-Stable/macos.toml) (`dev.warp.Warp-Stable`): chords for find (`f`),
+  blocks (`b`), commands (`c`), bookmarks (`m`), tabs (`t`), splits and scrolling (`s`), pane
+  resizing (`r`), font size and full screen (`z`), panels (`p`), and input (`i`). Most of them
+  press Warp's default keyboard shortcuts, so they assume Warp's default keybindings. The rest
+  (`f[`, `f]`, `su`, `sl`, `slu`, `sld`, `zr`, `zf`, `im`) press the key bound to their Warp action in
+  `~/.warp/keybindings.yaml`, and do nothing if there is none. When Chord loads the macOS bindings,
+  the Warp handler re-saves that file, creating it if needed. Existing bindings are kept, but
+  comments and formatting are discarded.
+- [Warp on Linux](./chords/dev/warp/Warp-Stable/linux.toml) and
+  [Warp on Windows](./chords/dev/warp/Warp-Stable/windows.toml) share the same chords for find,
+  blocks, commands, bookmarks, tabs, panes, scrolling, font size, Warp Drive, and terminal input.
+  Chord reads [Warp's keybindings file](https://docs.warp.dev/terminal/settings/file-locations)
+  when you run a chord and falls back to [Warp's defaults](https://docs.warp.dev/getting-started/keyboard-shortcuts)
+  for actions you haven't remapped. Assign a shortcut in Warp's **Settings → Keyboard Shortcuts**
+  for actions without defaults, including the block menu (`bm`), pane resizing
+  (`ru`, `rd`, `rl`, `rr`), single-line scrolling (`slu`, `sld`), and mouse reporting (`im`).
+
+## Install
+
+In [Chord](https://github.com/KeyChord/Chord), open Settings → Chords → **Chord Monorepos** →
+**Add Monorepo**, enter `KeyChord/chords`, then tick `@keychord/chords-warp` under
+**Packages to use**. That loads the version documented here. Settings → Browse also lists this
+package, but that adds its standalone repository, which can be older than this readme.
+
+## Development
+
+Run `vp pack` to build the `js/` directory:
+
+```shell
+vp pack
+```
